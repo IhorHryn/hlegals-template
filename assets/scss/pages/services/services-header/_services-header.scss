@@ -1,0 +1,87 @@
+@use "../../../presets" as *;
+@use "../../../mixins" as *;
+
+
+.services-header {
+  position: relative;
+
+
+  &__grid {
+    position: absolute;
+    z-index: 2;
+    top: 0;
+    right: 0;
+    left: 0;
+
+    display: grid;
+
+    @extend %container;
+    gap: $gap;
+    grid-template-columns: auto 1fr;
+    @include md-min {
+      padding-top: 50px;
+
+      grid-template-areas: "servlogo servactions" "servlogo servmenu";
+    }
+    @include md {
+      padding-top: $gap;
+
+      grid-template-areas: "servactions servactions" "servlogo servmenu";
+    }
+  }
+
+  &__logo {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+
+    grid-area: servlogo;
+    @include md {
+      align-items: flex-start;
+      justify-content: center;
+
+      height: 22px;
+    }
+
+    &-image,
+    &-slash,
+    &-slashp {
+      object-fit: contain;
+    }
+    &-image {
+      @include md {
+        width: auto;
+        height: 31px;
+      }
+    }
+
+    &-slash,
+    &-slashp {
+      @include md {
+        height: 24px;
+      }
+    }
+  }
+
+  &__menu {
+    grid-area: servmenu;
+  }
+
+  &__actions {
+    grid-area: servactions;
+  }
+
+  &__title {
+    color: #fff;
+
+    font-size: 38px;
+    font-weight: 400;
+    line-height: 45px;
+
+    @include md {
+      font-size: 19px;
+      line-height: 22px;
+    }
+  }
+}
+

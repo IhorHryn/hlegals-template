@@ -1,0 +1,53 @@
+@use "../../../presets" as *;
+@use "../../../mixins" as *;
+
+.service-item {
+  display: grid;
+  align-items: center;
+
+  gap: 10px;
+  grid-template-rows: auto auto 1fr;
+  @include md {
+    align-items: center;
+
+    grid-template-rows: auto 1fr;
+  }
+
+  &__icon {
+    @include md {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+  }
+  &__title {
+
+    color: $color-active;
+    font-size: 24px;
+    font-weight: 500;
+    line-height: 28px;
+
+
+    @include sm {
+      align-items: center;
+
+      font-size: 18px;
+      line-height: 21px;
+    }
+
+  }
+
+  &__description {
+    color: $color-white;
+
+    font-size: 18px;
+    line-height: 1.4;
+
+    @include md {
+      font-size: 16px;
+      font-weight: 400;
+
+      grid-column: 1 / span 3;
+    }
+  }
+}

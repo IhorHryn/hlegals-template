@@ -1,0 +1,141 @@
+@use "../../../presets" as *;
+@use "../../../mixins" as *;
+
+.team-main {
+  @include md-min {
+    padding-top: 80px;
+  }
+
+  @include md {
+    padding-top: 60px;
+  }
+
+  @include xs {
+    padding-top: 20px;
+  }
+}
+.members {
+  padding-bottom: 60px;
+
+  @extend %container;
+
+  @include xs {
+    padding-bottom: 40px;
+  }
+
+  &__header {
+    max-width: 864px;
+    margin: 0 auto;
+    padding-bottom: 60px;
+
+    background: linear-gradient(90.13deg, #f0145a 0.84%, #ef8080 99.96%);
+    -webkit-background-clip: text;
+    background-clip: text;
+
+    font-size: 42px;
+    line-height: 50px;
+
+    @include xs {
+      padding-bottom: 20px;
+
+      font-size: 32px;
+      line-height: 38px;
+    }
+    -webkit-text-fill-color: transparent;
+    -webkit-text-fill-color: transparent;
+  }
+
+  &__content {
+    display: flex;
+    flex-wrap: wrap;
+
+    gap: 40px;
+    @include ul {
+      align-items: center;
+      justify-content: center;
+    }
+    @include xs {
+      gap: 20px;
+    }
+  }
+}
+
+.member {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+
+  max-width: 413px;
+
+  @include xs {
+    flex-direction: row;
+
+    column-gap: 20px;
+  }
+
+  &__photo {
+    display: flex;
+
+    max-width: 413px;
+    height: auto;
+
+    @include xs {
+      max-width: 160px;
+    }
+  }
+
+  &__image {
+    width: 100%;
+
+    object-fit: contain;
+  }
+
+  &__description {
+    display: grid;
+    align-items: flex-start;
+
+    padding-top: 20px;
+
+    grid-template-areas:
+      "teamname teambutton"
+      "teamposition teambutton";
+    grid-template-columns: auto 32px;
+    @include xs {
+      align-items: flex-end;
+
+      padding-top: 65px;
+
+      grid-template-areas:
+        "teamname"
+        "teamposition"
+        "teambutton";
+      row-gap: 0;
+    }
+
+    &-name {
+      color: #323264;
+
+      font-size: 18px;
+      font-weight: 500;
+      line-height: 21px;
+
+      grid-area: teamname;
+      @include xs-min {
+        padding-bottom: 5px;
+      }
+    }
+
+    &-position {
+      color: #b3b3ba;
+
+      font-size: 16px;
+      line-height: 22px;
+
+      grid-area: teamposition;
+    }
+
+    &-button {
+      grid-area: teambutton;
+    }
+  }
+}
